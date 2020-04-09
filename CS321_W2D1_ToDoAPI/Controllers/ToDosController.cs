@@ -1,6 +1,7 @@
 ﻿using CS321_W2D2_ToDoAPI.Models;
 using CS321_W2D2_ToDoAPI.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace CS321_W2D2_ToDoAPI.Controllers
 {
@@ -49,9 +50,16 @@ namespace CS321_W2D2_ToDoAPI.Controllers
                 _todoService.Add(newToDo);
             }
             catch (System.Exception ex)
-            {               
+            {
                 ModelState.AddModelError("AddToDo", ex.Message);
                 return BadRequest(ModelState);
+
+              /*  var todo = newToDo.Description;
+                if (todo == "laundry")
+                {
+                    ModelState.AddModelError("AddToDo", "You can't do laundry!");
+                    return BadRequest(ModelState);
+                }*/
             }
 
             // return a 201 Created status. This will also add a "location" header
