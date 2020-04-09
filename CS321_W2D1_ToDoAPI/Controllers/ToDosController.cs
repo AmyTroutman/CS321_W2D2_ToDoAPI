@@ -49,7 +49,7 @@ namespace CS321_W2D2_ToDoAPI.Controllers
                 _todoService.Add(newToDo);
             }
             catch (System.Exception ex)
-            {
+            {               
                 ModelState.AddModelError("AddToDo", ex.Message);
                 return BadRequest(ModelState);
             }
